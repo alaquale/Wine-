@@ -1,4 +1,3 @@
-#Wine Delivery
 Il caso di studio si suddivide in due parti:
 Una parte si occupa della visualizzazione di alcuni algoritmi di ricerca per la consegna tra le varie regioni d’Italia,
 mostrando in base all’algoritmo selezionato (A*, BFS, DFS, ecc.) le varie differenze nella scelta del percorso. 
