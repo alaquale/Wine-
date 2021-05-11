@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block style %}
+<link rel="stylesheet" href="/static/ItalySytle.css">
+{% endblock style %}
+
+{% block content %}
+<div class="settings" id="settings">
+        <div class="problem_header"><h1>Italy Routing</h1></div>       
+        <div class="settings_container">
+           <h2> • Partenza</h2>     
+                <select name="" id="source">
+                <option value="Torino">Torino</option>
+                <option value="Roma">Roma</option>
+                <option value="Napoli">Napoli</option>
+                <option value="Bologna">Bologna</option>
+                <option value="Firenze">Firenze</option>
+                <option value="Lecce">Lecce</option>
+                <option value="Bari">Bari</option>
+                <option value="Cagliari">Cagliari</option>
+                <option value="Potenza">Potenza</option>
+                <option value="Ancona">Ancona</option>
+                <option value="Milano">Milano</option>
+                <option value="Genoa">Genoa</option>
+                <option value="Venezia">Venezia</option>
+                <option value="Trieste">Trieste</option>
+                <option value="Trento">Trento</option>
+                <option value="Aquila">L'Aquila</option>
+                <option value="Palermo">Palermo</option>
+                <option value="Perugia">Perugia</option>
+                <option value="Siena">Siena</option>
+                <option value="Foggia">Foggia</option>
+            </select>
+           <h2> • Destinazione</h2>
+            <select name="" id="target">
+                <option value="Roma">Roma</option>
+                <option value="Torino">Torino</option>               
+                <option value="Napoli">Napoli</option>
+                <option value="Bologna">Bologna</option>
+                <option value="Firenze">Firenze</option>
+                <option value="Lecce">Lecce</option>
+                <option value="Bari">Bari</option>
+                <option value="Cagliari">Cagliari</option>
+                <option value="Potenza">Potenza</option>
+                <option value="Ancona">Ancona</option>
+                <option value="Milano">Milano</option>
+                <option value="Genoa">Genoa</option>
+                <option value="Venezia">Venezia/option>
+                <option value="Trieste">Trieste</option>
+                <option value="Trento">Trento</option>
+                <option value="Aquila">L'Aquila</option>
+                <option value="Palermo">Palermo</option>
+                <option value="Perugia">Perugia</option>
+                <option value="Siena">Siena</option>
+                <option value="Foggia">Foggia</option>
+            </select>
+            <h2> • Algoritmo</h2>
+                <select name="" id="algorithm_select">
+                    <option value="dfs">○ Depth First Search         •• Dfs</option> 
+                    <option value="bfs">○ Breadth First Search       •• Bfs</option>
+                    <option value="lds">○ Depth Limited Search       •• Lds     </option> 
+                    <option value="ids">○ Iterative Depth Search     •• Ids    </option> 
+                    <option value="ucs">○ Uniform Cost Search        •• Ucs     </option>  
+                    <option value="astar">○ A* Search                •• A*    </option> 
+                  <!--  <option value="rbfs">Rbfs</option> -->
+                </select>
+                <button id="solve">Calcola</button>
+        </div>
+</div>
+<svg height="100%" width="1000px">
+    <defs>
+        <filter id="f1">
+            <feGaussianBlur stdDeviation="5" />
+        </filter>
+    </defs>
+
+    <line x1="50" y1="210" x2="60" y2="350" style="stroke:black;stroke-width:2" id="Torino_Milano"/>
+    <line x1="50" y1="210" x2="80" y2="130" style="stroke:black;stroke-width:2" id="Torino_Genoa"/>
+    <line x1="80" y1="130" x2="110" y2="80" style="stroke:black;stroke-width:2" id="Genoa_Bologna"/>
+    <line x1="60" y1="350" x2="160" y2="430" style="stroke:black;stroke-width:2" id="Milano_Venezia"/>
+    <line x1="160" y1="430" x2="165" y2="490" style="stroke:black;stroke-width:2" id="Venezia_Trieste"/>
+    <line x1="165" y1="490" x2="160" y2="540" style="stroke:black;stroke-width:2" id="Trieste_Trento"/>
+    <line x1="160" y1="540" x2="300" y2="560" style="stroke:black;stroke-width:2" id="Trento_Ancona"/>
+    <line x1="50" y1="210" x2="250" y2="250" style="stroke:black;stroke-width:2" id="Torino_Firenze"/>
+    <line x1="110" y1="80" x2="250" y2="250" style="stroke:black;stroke-width:2" id="Bologna_Firenze"/>
+    <line x1="250" y1="250" x2="290" y2="350" style="stroke:black;stroke-width:2" id="Firenze_Perugia"/>
+    <line x1="300" y1="560" x2="290" y2="350" style="stroke:black;stroke-width:2" id="Ancona_Perugia"/>
+    <line x1="300" y1="560" x2="490" y2="400" style="stroke:black;stroke-width:2" id="Ancona_Aquila"/>
+    <line x1="290" y1="350" x2="490" y2="400" style="stroke:black;stroke-width:2" id="Perugia_Aquila"/>
+    <line x1="250" y1="250" x2="450" y2="260" style="stroke:black;stroke-width:2" id="Firenze_Siena"/>
+    <line x1="450" y1="260" x2="630" y2="500" style="stroke:black;stroke-width:2" id="Siena_Roma"/>
+    <line x1="490" y1="400" x2="630" y2="500" style="stroke:black;stroke-width:2" id="Aquila_Roma"/>
+    <line x1="630" y1="500" x2="600" y2="590" style="stroke:black;stroke-width:2" id="Roma_Cagliari"/>
+    <line x1="630" y1="500" x2="720" y2="460" style="stroke:black;stroke-width:2" id="Roma_Napoli"/>
+    <line x1="720" y1="460" x2="850" y2="460" style="stroke:black;stroke-width:2" id="Napoli_Potenza"/>
+    <line x1="850" y1="460" x2="890" y2="530" style="stroke:black;stroke-width:2" id="Potenza_Palermo"/>
+    <line x1="720" y1="460" x2="785" y2="270" style="stroke:black;stroke-width:2" id="Napoli_Foggia"/>
+    <line x1="785" y1="270" x2="710" y2="190" style="stroke:black;stroke-width:2" id="Foggia_Bari"/>
+    <line x1="710" y1="190" x2="600" y2="130" style="stroke:black;stroke-width:2" id="Bari_Lecce"/>
+
+    <circle cx="50" cy="210" r="30" stroke="red" stroke-width="6" fill="None" class="test" id="test11"/>
+    <circle cx="50" cy="210" r="30" stroke="red" stroke-width="6" fill="None" class="test1" id="test12"/>
+    <circle cx="630" cy="500" r="30" stroke="green" stroke-width="6" fill="None" class="test" id="test21"/>
+    <circle cx="630" cy="500" r="30" stroke="green" stroke-width="6" fill="None" class="test1" id="test22"/>
+
+    <circle cx="50" cy="210" r="4" stroke="black" stroke-width="3" fill="black" id="Torino"/>
+    <circle cx="60" cy="350" r="4" stroke="black" stroke-width="3" fill="black" id="Milano"/>
+    <circle cx="80" cy="130" r="4" stroke="black" stroke-width="3" fill="black" id="Genoa"/>
+    <circle cx="110" cy="80" r="4" stroke="black" stroke-width="3" fill="black" id="Bologna"/>
+    <circle cx="160" cy="430" r="4" stroke="black" stroke-width="3" fill="black" id="Venezia"/>
+    <circle cx="165" cy="490" r="4" stroke="black" stroke-width="3" fill="black" id="Trieste"/>
+    <circle cx="160" cy="540" r="4" stroke="black" stroke-width="3" fill="black" id="Trento"/>
+    <circle cx="300" cy="560" r="4" stroke="black" stroke-width="3" fill="black" id="Ancona"/>
+    <circle cx="250" cy="250" r="4" stroke="black" stroke-width="3" fill="black" id="Firenze"/>
+    <circle cx="290" cy="350" r="4" stroke="black" stroke-width="3" fill="black" id="Perugia"/>
+    <circle cx="450" cy="260" r="4" stroke="black" stroke-width="3" fill="black" id="Siena"/>
+    <circle cx="490" cy="400" r="4" stroke="black" stroke-width="3" fill="black" id="Aquila"/>
+    <circle cx="630" cy="500" r="4" stroke="black" stroke-width="3" fill="black" id="Roma"/>
+    <circle cx="600" cy="590" r="4" stroke="black" stroke-width="3" fill="black" id="Cagliari"/>
+    <circle cx="720" cy="460" r="4" stroke="black" stroke-width="3" fill="black" id="Napoli"/>
+    <circle cx="850" cy="460" r="4" stroke="black" stroke-width="3" fill="black" id="Potenza"/>
+    <circle cx="890" cy="530" r="4" stroke="black" stroke-width="3" fill="black" id="Palermo"/>
+    <circle cx="785" cy="270" r="4" stroke="black" stroke-width="3" fill="black" id="Foggia"/>
+    <circle cx="710" cy="190" r="4" stroke="black" stroke-width="3" fill="black" id="Bari"/>
+    <circle cx="600" cy="130" r="4" stroke="black" stroke-width="3" fill="black" id="Lecce"/>
+
+    
+    <text x="10" y="200" fill="black">Torino</text>
+    <text x="65" y="340" fill="black">Milano</text>
+    <text x="15" y="125" fill="black">Genoa</text>
+    <text x="125" y="90" fill="black">Bologna</text>
+    <text x="170" y="430" fill="black">Venezia</text>
+    <text x="85" y="495" fill="black">Trieste</text>
+    <text x="130" y="570" fill="black">Trento</text>
+    <text x="285" y="590" fill="black">Ancona</text>
+    <text x="250" y="240" fill="black">Firenze</text>
+    <text x="295" y="345" fill="black">Perugia</text>
+    <text x="430" y="245" fill="black">Siena</text>
+    <text x="470" y="385" fill="black">L'Aquila</text>
+    <text x="640" y="520" fill="black">Roma</text>
+    <text x="580" y="620" fill="black">Cagliari</text>
+    <text x="710" y="485" fill="black">Napoli</text>
+    <text x="835" y="445" fill="black">Potenza</text>
+    <text x="870" y="560" fill="black">Palermo</text>
+    <text x="800" y="275" fill="black">Foggia</text>
+    <text x="730" y="190" fill="black">Bari</text>
+    <text x="615" y="130" fill="black">Lecce</text>
+
+    
+    
+</svg>
+<div width="100px" height="100px" class="div_"></div>
+    <script src="{{url_for('static', filename='Italy.js')}}"></script>
+{% endblock content %}

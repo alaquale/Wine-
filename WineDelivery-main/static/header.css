@@ -1,0 +1,72 @@
+html, body {
+    padding:0;
+    margin: 0;
+    background-color:white;
+    font-family: "Copperplate";
+}
+
+.header {
+    background: rgb(214,93,177);
+    background: linear-gradient(0deg, rgba(214,93,177,0.9004552504595589) 0%, rgba(95,0,66,1) 100%);
+    height: 16vh;
+    margin: 0;
+    font-size: 50px;
+    line-height: 100px;
+}
+
+.header a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgb(214,93,177);
+    background: linear-gradient(0deg, rgba(214,93,177,0.9004552504595589) 0%, rgba(95,0,66,1) 100%);
+    color: white;
+    text-align: center;
+  }
+
+.header ul {
+    list-style: none;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+}
+
+.header ul li {
+    text-decoration: none;
+    display: inline;
+    font-size: 30px;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 10px;
+}
+
+ul li:hover {
+    color:black;
+    cursor: pointer;
+}
+
+.header #logo {
+    color: rgb(255, 255, 255);
+    margin:0;
+    margin-left: 20px;
+    padding: 0;
+    display: inline;
+    border-right-color: rgb(54, 36, 14);
+    border-right: 2px;
+    cursor: pointer;
+}
+
+.header #back {
+    margin:0;
+    margin-left: 20px;
+    padding: 0;
+    display: inline;
+    float: right;
+}

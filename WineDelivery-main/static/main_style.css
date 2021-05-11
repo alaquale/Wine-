@@ -1,0 +1,25 @@
+#main_div {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin-left: 15vw;
+    margin-top: 10vh;
+    margin-bottom: 10vh
+}
+
+#main_div div {
+    color: #eee;
+    width: 70vw;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 6vw;
+    text-align: center;
+    margin-top: 2vw;
+    line-height: 12vw;
+}
+
+#main_div a {
+    border-radius:10px;
+    text-decoration: none;
+    background: rgb(171,169,196);
+background: linear-gradient(90deg, rgba(171,169,196,0.922864214044993) 0%, rgba(174,43,139,0.603536482952556) 35%, rgba(91,66,103,0.5839286398153012) 100%);
+}
