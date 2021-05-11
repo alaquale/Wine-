@@ -1,0 +1,7 @@
+#Wine Delivery
+Il caso di studio si suddivide in due parti:
+Una parte si occupa della visualizzazione di alcuni algoritmi di ricerca per la consegna tra le varie regioni d’Italia,
+mostrando in base all’algoritmo selezionato (A*, BFS, DFS, ecc.) le varie differenze nella scelta del percorso. 
+L’altra parte del progetto mantiene sempre al centro il tema del vino, ma esteso a livello mondiale, 
+tramite una base di conoscenza, usando la regressione logistica per la classificazione multi-classe del tipo di vino (ad es. Cabernet sauvignon, merlot, malbec, ecc.) 
+in base alle recensioni degli intenditori di vino.
